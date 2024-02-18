@@ -78,7 +78,7 @@ const Login = () => {
                 <form className="bg-white py-8 px-10 rounded-2xl shadow-md w-96" onSubmit={(e) => handleSubmit(e)}>
                     <div className='flex justify-center items-center text-black font-bold text-xl mb-2 '><h1>{loginOrNot ? "Sign In" : "Register"} </h1></div>
                     <div className="mb-5">
-                        <label htmlFor="mobile" className="block mb-2 text-sm font-medium text-gray-900">Username.</label>
+                        <label htmlFor="mobile" className="block mb-2 text-sm font-medium text-gray-900">Username</label>
                         <input type="text" id="mobile" value={userName} onChange={(e) => handleUsername(e)} className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Enter your username" required />
                     </div>
                     <div className="mb-5">

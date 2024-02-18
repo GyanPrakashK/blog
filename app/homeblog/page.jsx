@@ -18,7 +18,7 @@ const HomePage = () => {
       toast.promise(
          axios.request(option).then(function (res) {
             setBlog(res.data)
-            console.log(res);
+            console.log(res.data);
          }).catch((error) => {
             console.log(error)
          })
@@ -39,7 +39,7 @@ const HomePage = () => {
 
             {blog.map((blogcontant) => (
 
-               <div key={blogcontant.title} className='px-12 py-3 flex  items-start '>
+               <div key={blogcontant.id} className='px-12 py-3 flex  items-start '>
                   <div className='px-12 py-12 bg-white shadow-sm hover:shadow-xl transition-all duration-100 rounded-lg w-full flex-row gap-12 grid'>
                      <div className='text-center '>
                         <div className='flex justify-center items-center'>title: <h3>{blogcontant.title}</h3></div>
