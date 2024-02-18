@@ -90,7 +90,7 @@ const Login = () => {
                         <button type="submit" className="text-white mt-2 bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-full text-sm py-2 px-2 text-center">Submit</button>
                     </div>
                     <div onClick={() => { setLoginOrNot(!loginOrNot) }} className=" text-right hover:cursor-pointer  mt-2">
-                        <div >{loginOrNot ? <div className=' flex '>Don't have account? <div className='text-blue-700 hover:underline'>Register </div></div> : <div className=' flex '>Already have account? <div className='text-blue-700 hover:underline'>Login </div></div>}</div>
+                        <div >{loginOrNot ? <div className=' flex '>Don&lsquo;t have account? <div className='text-blue-700 hover:underline'>Register </div></div> : <div className=' flex '>Already have account? <div className='text-blue-700 hover:underline'>Login </div></div>}</div>
                     </div>
                 </form>
             </div>
