@@ -1,7 +1,51 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import NavBar from '@/components/navBar'
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const AddPost = () => {
+
+    const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('');
+    const [blogCont, setBlogCont] = useState('');
+
+    const handletitle = (e) => {
+        setTitle(e.target.value);
+    }
+    const handleauthor = (e) => {
+        setAuthor(e.target.value);
+    }
+    const handleblogCont = (e) => {
+        setBlogCont(e.target.value);
+    }
+
+    const option = {
+        method: 'POST',
+        url: 'https://blogfastapi-7kac.onrender.com/blog/posts/',
+        headers: {
+            'Content-Type': 'application/json',
+            'accept': 'application/json',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmhpc2hlazEyIiwidXNlcl9pZCI6IjY1ZDA3N2JjYzM4MWMyZjBjYTMxMjBhMCIsImV4cCI6MTcwODI1NzMwOH0.je2Q_aTYqj9peIO8FjEO9GhpoKGmnP2tSgSrTKMnC_g'
+
+        },
+        data: {
+            title: title,
+            content: author,
+            author: blogCont
+        }
+
+        
+    }
+
+    axios.request(option).then(function (res) {
+        toast.success("Add successfully !!")
+        console.log(res.data);
+    }).catch(function (error) {
+        toast.error(error.message);
+        console.log(error);
+    })
+
     return (
         <div className=''   >
             <NavBar />
@@ -15,18 +59,18 @@ const AddPost = () => {
 
                         <div className='flex w-1/2 '>
                             <label htmlFor="title" className="block mb-2 text-xl font-medium text-gray-900">Title:</label>
-                            {/* <input type="text" className='border border-gray-900 rounded-lg hover:focus:ring-black   '/> */}
-                            <input type="text" id='title' className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 ml-4" placeholder="Enter your Title" required />
+
+                            <input type="text" value={title} onChange={handletitle} id='title' className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 ml-4" placeholder="Enter your Title" required />
                         </div>
                         <div className='flex w-1/2 '>
-                            <label htmlFor="title" className="block mb-2 text-xl font-medium text-gray-900">Author:</label>
-                            {/* <input type="text" className='border border-gray-900 rounded-lg hover:focus:ring-black   '/> */}
-                            <input type="text" id='title' className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 w-full focus:border-blue-500 block pl-2.5 ml-4" placeholder="  author name" required />
+                            <label htmlFor="author" className="block mb-2 text-xl font-medium text-gray-900">Author:</label>
+
+                            <input type="text" value={author} onChange={handleauthor} id='author' className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 w-full focus:border-blue-500 block pl-2.5 ml-4" placeholder="  author name" required />
                         </div>
                     </div>
                     <div className='mt-16'>
                         <label htmlFor="blogid" className="block mb-2 text-xl font-medium text-gray-900">Write your blog :-</label>
-                        <textarea name="BlogContant" id="blogid" className='bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pt-2 pl-2.5  w-full  ' cols="30" rows="10"></textarea>
+                        <textarea name="BlogContant" value={blogCont} onChange={handleblogCont} id="blogid" className='bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pt-2 pl-2.5  w-full  ' cols="30" rows="10"></textarea>
 
                     </div>
                 </div>

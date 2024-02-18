@@ -42,7 +42,7 @@ const HomePage = () => {
                <div key={blogcontant.id} className='px-12 py-3 flex  items-start '>
                   <div className='px-12 py-12 bg-white shadow-sm hover:shadow-xl transition-all duration-100 rounded-lg w-full flex-row gap-12 grid'>
                      <div className='text-center '>
-                        <div className='flex justify-center items-center'>title: <h3>{blogcontant.title}</h3></div>
+                        <div className='flex justify-center items-center'>title: <div>{blogcontant.title}</div></div>
                      </div>
                      <div>
                         <div className='flex'> content:<p>{blogcontant.content}</p></div>
