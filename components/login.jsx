@@ -39,7 +39,7 @@ const Login = () => {
             axios.request(option).then(function (res) {
                 toast.success("User loggedin successfully !!")
                 console.log(res.data);
-                router.push('/editblog')
+                router.push('/homeblog')
             }).catch(function (error) {
                 toast.error(error.message);
                 console.log(error);
