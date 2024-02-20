@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '@/components/navBar'
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -20,31 +20,38 @@ const AddPost = () => {
         setBlogCont(e.target.value);
     }
 
-    const option = {
-        method: 'POST',
-        url: 'https://blogfastapi-7kac.onrender.com/blog/posts/',
-        headers: {
-            'Content-Type': 'application/json',
-            'accept': 'application/json',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmhpc2hlazEyIiwidXNlcl9pZCI6IjY1ZDA3N2JjYzM4MWMyZjBjYTMxMjBhMCIsImV4cCI6MTcwODI1NzMwOH0.je2Q_aTYqj9peIO8FjEO9GhpoKGmnP2tSgSrTKMnC_g'
-
-        },
-        data: {
-            title: title,
-            content: author,
-            author: blogCont
+    const handlePost = (e) => {
+            
+        const option = {
+            method: 'POST',
+            url: 'https://blogfastapi-7kac.onrender.com/blog/posts/',
+            headers: {
+                'Content-Type': 'application/json',
+                'accept': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmhpc2hlazEyIiwidXNlcl9pZCI6IjY1ZDA3N2JjYzM4MWMyZjBjYTMxMjBhMCIsImV4cCI6MTcwODQyMzI5Nn0.tiC0PdALzZP8WIa3YSDbEAhA2B-8IJ7gzlr0GPH-o7o'
+    
+            },
+            data: {
+                title: title,
+                content: author,
+                author: blogCont
+            }
+    
+            
         }
+    
+        axios.request(option).then(function (res) {
+            toast.success("Add successfully !!")
+            console.log(res.data);
+        }).catch(function (error) {
+            toast.error(error.message);
+            console.log(error);
+        })
 
-        
     }
 
-    axios.request(option).then(function (res) {
-        toast.success("Add successfully !!")
-        console.log(res.data);
-    }).catch(function (error) {
-        toast.error(error.message);
-        console.log(error);
-    })
+   
+
 
     return (
         <div className=''   >
@@ -72,6 +79,9 @@ const AddPost = () => {
                         <label htmlFor="blogid" className="block mb-2 text-xl font-medium text-gray-900">Write your blog :-</label>
                         <textarea name="BlogContant" value={blogCont} onChange={handleblogCont} id="blogid" className='bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pt-2 pl-2.5  w-full  ' cols="30" rows="10"></textarea>
 
+                    </div>
+                    <div className='flex justify-end items-end mt-4'>
+                        <button onClick={handlePost} className="text-white mt-2 bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-40 text-sm py-2 px-2 text-center">Post</button>
                     </div>
                 </div>
             </div>
