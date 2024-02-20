@@ -42,13 +42,13 @@ const HomePage = () => {
                <div key={blogcontant.id} className='px-12 py-3 flex  items-start '>
                   <div className='px-12 py-12 bg-white shadow-sm hover:shadow-xl transition-all duration-100 rounded-lg w-full flex-row gap-12 grid'>
                      <div className='text-center '>
-                        <div className='flex justify-center items-center'>title: <div>{blogcontant.title}</div></div>
+                        <div className='flex justify-center items-center'>title: <div className='ml-2'>{blogcontant.title}</div></div>
                      </div>
                      <div>
-                        <div className='flex'> content:<p>{blogcontant.content}</p></div>
+                        <div className='flex'> content:<pre className='ml-4'>{blogcontant.content}</pre></div>
                      </div>
                      <div className='text-end '>
-                        <div className='flex justify-end items-end'>author: <p>{blogcontant.author}</p></div>
+                        <div className='flex justify-end items-end'>author: <p className='ml-2'>{blogcontant.author}</p></div>
                      </div>
                   </div>
                </div>
