@@ -33,8 +33,8 @@ const AddPost = () => {
             },
             data: {
                 title: title,
-                content: author,
-                author: blogCont
+                content: blogCont,
+                author: author
             }
     
             
