@@ -1,13 +1,14 @@
 'use client'
 import NavBar from '@/components/navBar'
 import axios from 'axios'
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 
 
 const HomePage = () => {
 
-   const [blog, setBlog] = useState([])
+   const [blogs, setBlogs] = useState([])
 
    useEffect(() => {
       const option = {
@@ -17,7 +18,7 @@ const HomePage = () => {
       }
       toast.promise(
          axios.request(option).then(function (res) {
-            setBlog(res.data)
+            setBlogs(res.data)
             console.log(res.data);
          }).catch((error) => {
             console.log(error)
@@ -31,15 +32,16 @@ const HomePage = () => {
 
    }, [])
 
+ 
+
    return (
       <>
          <div><Toaster/></div>
          <NavBar />
          <div className='my-20 mx-10  '>
-
-            {blog.map((blogcontant) => (
-
-               <div key={blogcontant.id} className='px-12 py-3 flex  items-start '>
+            {blogs.map((blogcontant) => (
+               
+               <Link href={`/homeblog/${blogcontant.id}`} key={blogcontant.id} className='px-12 py-3 flex  items-start '>
                   <div className='px-12 py-12 bg-white shadow-sm hover:shadow-xl transition-all duration-100 rounded-lg w-full flex-row gap-12 grid'>
                      <div className='text-center '>
                         <div className='flex justify-center items-center'>title: <div className='ml-2'>{blogcontant.title}</div></div>
@@ -51,7 +53,7 @@ const HomePage = () => {
                         <div className='flex justify-end items-end'>author: <p className='ml-2'>{blogcontant.author}</p></div>
                      </div>
                   </div>
-               </div>
+               </Link>
             ))}
          </div>
       </>
