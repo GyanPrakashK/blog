@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '@/components/navBar'
 import axios from 'axios';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 const AddPost = () => {
 
@@ -28,7 +28,7 @@ const AddPost = () => {
             headers: {
                 'Content-Type': 'application/json',
                 'accept': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmhpc2hlazEyIiwidXNlcl9pZCI6IjY1ZDA3N2JjYzM4MWMyZjBjYTMxMjBhMCIsImV4cCI6MTcwODQyMzI5Nn0.tiC0PdALzZP8WIa3YSDbEAhA2B-8IJ7gzlr0GPH-o7o'
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmhpc2hlazEyIiwidXNlcl9pZCI6IjY1ZDA3N2JjYzM4MWMyZjBjYTMxMjBhMCIsImV4cCI6MTcwODUzODc1NX0.xBNYzwXKO1_7FWP2Fd5Bms0iBoQ-liROyGv3OoXUM8g'
     
             },
             data: {
@@ -48,6 +48,16 @@ const AddPost = () => {
             console.log(error);
         })
 
+        const newblogCont = '';
+        setBlogCont(newblogCont);
+
+        const newtitle = '';
+        setTitle(newtitle);
+
+        const newauthor = '';
+        setAuthor(newauthor);
+
+
     }
 
    
@@ -55,6 +65,7 @@ const AddPost = () => {
 
     return (
         <div className=''   >
+            <Toaster/>
             <NavBar />
             <div className='bg-white block  mt-20 mx-5 h-[40rem] rounded-lg shadow-lg p-20 '>
                 <div className='mx-10 text-gray-500 mb-8 text-2xl'>
