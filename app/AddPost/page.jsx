@@ -28,7 +28,7 @@ const AddPost = () => {
             headers: {
                 'Content-Type': 'application/json',
                 'accept': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmhpc2hlazEyIiwidXNlcl9pZCI6IjY1ZDA3N2JjYzM4MWMyZjBjYTMxMjBhMCIsImV4cCI6MTcwODUzODc1NX0.xBNYzwXKO1_7FWP2Fd5Bms0iBoQ-liROyGv3OoXUM8g'
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmhpc2hlazEyIiwidXNlcl9pZCI6IjY1ZDA3N2JjYzM4MWMyZjBjYTMxMjBhMCIsImV4cCI6MTcwODU4NjI3OX0.VXAYnNNw8wB7YBFRj7QbGKepFVV6FJQ7dKwVr0y6Jh0'
     
             },
             data: {
