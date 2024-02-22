@@ -51,7 +51,7 @@ const Page = ({ params }) => {
                 <h1>{item.author}</h1>
               </div>
             </div>
-        <Link href={`/homeblog/slug/${id}`} className='flex justify-end items-end m-10  '>
+        <Link href={`/homeblog/slug/${id}`} className='flex justify-end items-end m-11  '>
           <button className="text-white mt-2 bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-40 text-sm py-2 px-2 text-center">Edit Post</button>
         </Link>
           </div>
