@@ -41,7 +41,7 @@ const Page = ({ params }) => {
       <NavBar />
       <div className='flex justify-center p-5 pt-20 '>
         {blog.map((item) => (
-          <div className='w-[77%] min-h-screen  bg-white rounded-lg shadow-xl '>
+          <div className='w-[77%] min-h-screen  bg-white rounded-lg shadow-xl' key={id}>
             <div className='m-10  flex flex-col gap-10'>
               <h1 className='flex justify-center font-extrabold text-2xl mt-3 ' >{item.title}</h1>
               <div className='text-wrap p-8'>
